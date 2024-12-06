@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{title}}</title>
+        <link rel="stylesheet" href="css/styles.css"/> <!-- static path for public folder is already set in app.js -->
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+        <link rel="manifest" href="assets/site.webmanifest">
+    </head>
+    <body>
+        <div class="main-content">
+            {{> header}}
+            <article class="widget">
+                <form class="weatherLocation">
+                    <input class="input-field" placeholder="Enter city name" type="text"/>
+                    <button class="search-button">Search</button>
+                </form>
+                <div class="icon-and-weatherInfo">
+                    <div class="weatherIcon"><i></i></div>
+                    <div class="weatherInfo">
+                         <div class="temperature"><span></span></div>
+                        <div class="weatherCondition"></div> 
+                    </div>
+                </div>
+                <div class="place"></div>
+                <div class="date"></div>
+            </article>
+            
+            <!-- Menampilkan rekomendasi kegiatan -->
+            <section class="recommendations">
+                <h2>Rekomendasi Kegiatan</h2>
+                {{#if recommendations}}
+                    <ul>
+                        {{#each recommendations}}
+                            <li>{{this.rekomendasi}}</li>
+                        {{/each}}
+                    </ul>
+                {{else}}
+                    <p>No recommendations available</p>
+                {{/if}}
+            </section>
+        </div>
+        <script src="js/app.js"></script> <!-- absolute path -->
+    </body>
+</html>
